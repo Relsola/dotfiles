@@ -3,7 +3,7 @@
 
 (load "~/.emacs.rc/rc.el")
 
-(re/require-theme 'atom-one-dark)
+(rc/require-theme 'atom-one-dark)
 
 ;;; ido
 (rc/require 'smex 'ido-completing-read+)
@@ -21,7 +21,7 @@
 (rc/require 'eglot 'corfu 'cape)
 
 (setq corfu-auto t)
-(setq corfu-auto-delay 0.15)
+(setq corfu-auto-delay 0.05)
 (setq corfu-cycle t)
 (setq corfu-preselect 'prompt)
 (setq corfu-quit-no-match 'separator)
