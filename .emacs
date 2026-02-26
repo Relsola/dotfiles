@@ -21,10 +21,10 @@
 (rc/require 'eglot 'corfu 'cape)
 
 (setq corfu-auto t)
-(setq corfu-auto-delay 0)
-(setq corfu-auto-prefix 1)
+(setq corfu-auto-delay 0.15)
 (setq corfu-cycle t)
 (setq corfu-preselect 'prompt)
+(setq corfu-quit-no-match 'separator)
 
 (global-corfu-mode 1)
 
@@ -35,7 +35,6 @@
   (add-to-list 'eglot-server-programs
                '((c-mode c++-mode)
                  . ("clangd"
-                    "--header-insertion=never"
-                    "--clang-tidy"))))
+                    "--header-insertion=never"))))
 
 (load-file custom-file)
