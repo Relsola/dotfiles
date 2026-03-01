@@ -3,11 +3,12 @@
 
 (load "~/.emacs.rc/rc.el")
 
+(load "~/.emacs.rc/misc-rc.el")
+
 (rc/require-theme 'atom-one-dark)
 
 ;;; ido
 (rc/require 'smex 'ido-completing-read+)
-
 (require 'ido-completing-read+)
 
 (ido-mode 1)
