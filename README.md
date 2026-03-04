@@ -1,4 +1,4 @@
-# Emacs 配置文件
+# dotfiles
 
 # 必须
 
