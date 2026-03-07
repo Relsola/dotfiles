@@ -27,7 +27,9 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 
-(rc/require-theme 'atom-one-dark)
+;; (rc/require-theme 'atom-one-dark)
+(rc/require 'moe-theme)
+(load-theme 'moe-dark t)
 
 ; Stop Emacs from losing undo information by
 ; setting very high limits for undo buffers
@@ -85,18 +87,6 @@
 (setq-default dired-dwim-target t)
 (setq dired-listing-switches "-alh")
 (setq dired-mouse-drag-files t)
-
-;;; helm
-(rc/require 'helm 'helm-git-grep 'helm-ls-git)
-
-(setq helm-ff-transformer-show-only-basename nil)
-
-(global-set-key (kbd "C-c h t") 'helm-cmd-t)
-(global-set-key (kbd "C-c h g g") 'helm-git-grep)
-(global-set-key (kbd "C-c h g l") 'helm-ls-git-ls)
-(global-set-key (kbd "C-c h f") 'helm-find)
-(global-set-key (kbd "C-c h a") 'helm-org-agenda-files-headings)
-(global-set-key (kbd "C-c h r") 'helm-recentf)
 
 ;;; rg
 (rc/require 'rg 'wgrep)
