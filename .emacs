@@ -27,9 +27,7 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 
-;; (rc/require-theme 'atom-one-dark)
-(rc/require 'moe-theme)
-(load-theme 'moe-dark t)
+(rc/require-theme 'atom-one-dark)
 
 ; Stop Emacs from losing undo information by
 ; setting very high limits for undo buffers
