@@ -7,3 +7,4 @@
 # 可选
 
 - [JetBrains Mono](https://www.jetbrains.com/zh-cn/lp/mono/) 字体
+- [Power Shell](https://github.com/PowerShell/PowerShell) 终端
