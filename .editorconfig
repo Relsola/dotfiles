@@ -12,3 +12,6 @@ trim_trailing_whitespace = false
 [*.bat]
 charset = latin1
 end_of_line = crlf
+
+[.clangd]
+indent_style = space

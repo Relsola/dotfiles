@@ -4,6 +4,9 @@ CompileFlags:
     - -std=gnu++14
     - -fno-exceptions
     - -fno-rtti
+    - -Wall
+    - -Wextra
+    - -Wshadow
 
 Index:
   Background: Build
