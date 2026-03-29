@@ -17,3 +17,7 @@ InlayHints:
 Diagnostics:
   Suppress:
     - unused-includes
+
+Completion:
+  ArgumentLists: None
+  HeaderInsertion: Never
