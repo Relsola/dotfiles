@@ -5,6 +5,6 @@ AllowShortIfStatementsOnASingleLine: WithoutElse
 SortIncludes: Never
 
 BreakBeforeBraces: Allman
-UseTab: ForIndentation
+UseTab: Never
 IndentWidth: 4
 TabWidth: 4

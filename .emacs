@@ -115,6 +115,4 @@
 
 (require 'cc-dev)
 
-(require 'markdown-mode)
-
 (load-file custom-file)
