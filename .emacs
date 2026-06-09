@@ -115,4 +115,55 @@
 
 (require 'cc-dev)
 
+;;; hl-todo
+(rc/require 'hl-todo)
+
+(global-hl-todo-mode)
+
+(setq hl-todo-keyword-faces
+      '(("TODO"   . "#FF0000")
+        ("FIXME"  . "#FF0000")
+        ("NOTE"   . "#00FF00")
+        ("DEBUG"  . "#A020F0")
+        ("GOTCHA" . "#FF4500")
+        ("STUB"   . "#1E90FF")))
+
+(global-set-key (kbd "C-c p") #'hl-todo-previous)
+(global-set-key (kbd "C-c n") #'hl-todo-next)
+(global-set-key (kbd "C-c o") #'hl-todo-occur)
+(global-set-key (kbd "C-c i") #'hl-todo-insert)
+
+;;; mwim
+(rc/require 'mwim)
+
+(global-set-key (kbd "C-a") 'mwim-beginning)
+(global-set-key (kbd "C-e") 'mwim-end)
+
+;;; ripgrep
+(rc/require 'rg)
+
+(global-set-key (kbd "C-c s r") 'rg)
+(global-set-key (kbd "C-c s t") 'rg-literal)
+
+;;; jinx - Spell Checker
+(rc/require 'jinx)
+
+(setq jinx-languages "en_US")
+(keymap-global-set "M-$" #'jinx-correct)
+(keymap-global-set "C-M-$" #'jinx-languages)
+(add-hook 'emacs-startup-hook #'global-jinx-mode)
+
+;;; .editorconfig
+(editorconfig-mode 1)
+
+;;; LSP
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               `((simpc-mode c-mode c++-mode) . ("clangd")))
+    (define-key eglot-mode-map (kbd "C-c f") #'eglot-format)
+    (define-key eglot-mode-map (kbd "C-c r") #'eglot-rename))
+
+(dolist (hook '(simpc-mode-hook c-mode-hook c++-mode))
+    (add-hook hook #'eglot-ensure))
+
 (load-file custom-file)
