@@ -10,25 +10,22 @@
 ;;; Appearance
 (defun rc/get-default-font ()
   (cond
+   ;; ((eq system-type 'windows-nt) "Consolas-13")
+   ;; ((eq system-type 'gnu/linux) "Iosevka-20")))
    ((eq system-type 'windows-nt) "JetBrains Mono")
    ((eq system-type 'gnu/linux) "JetBrains Mono")))
+
 
 (add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
 
 (tool-bar-mode 0)
-(menu-bar-mode -1)
-
-(when (fboundp 'scroll-bar-mode)
-	(scroll-bar-mode -1))
-
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
 (column-number-mode 1)
-(electric-pair-mode t)
-(global-auto-revert-mode t)
-(delete-selection-mode t)
+(show-paren-mode 1)
 (editorconfig-mode 1)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
-(add-hook 'prog-mode-hook #'show-paren-mode)
 
 (rc/require-theme 'atom-one-dark)
 
@@ -37,6 +34,9 @@
 (setq undo-limit 20000000)
 (setq undo-strong-limit 40000000)
 
+(server-start)
+(delete-selection-mode t)
+(global-auto-revert-mode t)
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "midnight blue")
 
@@ -56,6 +56,24 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (global-display-line-numbers-mode)
+
+;;; Company
+(use-package company
+    :ensure t
+    :demand t
+    :config
+    (global-company-mode)
+    (setq company-global-modes '(not tuareg-mode-hook))
+    (setq company-tooltip-align-annotations t)
+    (setq company-idle-delay 0.0)
+    (setq company-show-quick-access t)
+    (setq company-selection-wrap-around t)
+    (setq company-transformers '(company-sort-by-occurrence)))
+
+(use-package company-box
+   :ensure t
+   :if window-system
+   :hook (company-mode . company-box-mode))
 
 ;;; magit
 (rc/require 'cl-lib)
@@ -115,29 +133,32 @@
 
 (require 'cc-dev)
 
-;;; hl-todo
-(rc/require 'hl-todo)
+(use-package hl-todo
+    :ensure t
+    :demand t
+    :bind
+    ("C-c p" . hl-todo-previous)
+    ("C-c n" . hl-todo-next)
+    ("C-c o" . hl-todo-occur)
+    ("C-c i" . hl-todo-insert)
+    :config
+    (global-hl-todo-mode)
+    (setq hl-todo-keyword-faces
+        '(("TODO"   . "#FF0000")
+          ("NOTE"   . "#00FF00")
+          ("DEBUG"  . "#A020F0")
+          ("FIXME"  . "#FF0000")
+          ("GOTCHA" . "#FF4500")
+          ("STUB"   . "#1E90FF"))))
 
-(global-hl-todo-mode)
-
-(setq hl-todo-keyword-faces
-      '(("TODO"   . "#FF0000")
-        ("FIXME"  . "#FF0000")
-        ("NOTE"   . "#00FF00")
-        ("DEBUG"  . "#A020F0")
-        ("GOTCHA" . "#FF4500")
-        ("STUB"   . "#1E90FF")))
-
-(global-set-key (kbd "C-c p") #'hl-todo-previous)
-(global-set-key (kbd "C-c n") #'hl-todo-next)
-(global-set-key (kbd "C-c o") #'hl-todo-occur)
-(global-set-key (kbd "C-c i") #'hl-todo-insert)
-
-;;; mwim
-(rc/require 'mwim)
-
-(global-set-key (kbd "C-a") 'mwim-beginning)
-(global-set-key (kbd "C-e") 'mwim-end)
+;;; moving to the beginning/end of code
+(use-package mwim
+    :ensure t
+    :bind
+    ("C-a" . mwim-beginning)
+    ("C-e" . mwim-end)
+    ("<home>" . mwim-beginning-of-line-or-code)
+    ("<end>" . mwim-end-of-line-or-code))
 
 ;;; ripgrep
 (rc/require 'rg)
@@ -145,16 +166,14 @@
 (global-set-key (kbd "C-c s r") 'rg)
 (global-set-key (kbd "C-c s t") 'rg-literal)
 
-;;; jinx - Spell Checker
-(rc/require 'jinx)
-
-(setq jinx-languages "en_US")
-(keymap-global-set "M-$" #'jinx-correct)
-(keymap-global-set "C-M-$" #'jinx-languages)
-(add-hook 'emacs-startup-hook #'global-jinx-mode)
-
-;;; .editorconfig
-(editorconfig-mode 1)
+;;; Spell Checker
+(use-package jinx
+    :ensure t
+    :hook (emacs-startup . global-jinx-mode)
+    :bind
+    ("M-$" . jinx-correct)
+    ("C-M-$" . jinx-languages)
+    :config (setq jinx-languages "en_US"))
 
 ;;; LSP
 (with-eval-after-load 'eglot
@@ -163,7 +182,7 @@
     (define-key eglot-mode-map (kbd "C-c f") #'eglot-format)
     (define-key eglot-mode-map (kbd "C-c r") #'eglot-rename))
 
-(dolist (hook '(simpc-mode-hook c-mode-hook c++-mode))
-    (add-hook hook #'eglot-ensure))
+;; (dolist (hook '(simpc-mode-hook c-mode-hook c++-mode))
+;;     (add-hook hook #'eglot-ensure))
 
 (load-file custom-file)
