@@ -1,0 +1,366 @@
+{
+    "workbench.settings.applyToAllProfiles": [
+        "editor.formatOnType",
+        "editor.suggest.snippetsPreventQuickSuggestions",
+        "debug.showBreakpointsInOverviewRuler",
+        "git.confirmSync",
+        "git.enableSmartCommit",
+        "terminal.integrated.cursorBlinking",
+        "terminal.integrated.rightClickBehavior",
+        "C_Cpp.intelliSenseEngine",
+        "C_Cpp.autocomplete",
+        "C_Cpp.errorSquiggles",
+        "C_Cpp.formatting",
+        "C_Cpp.dimInactiveRegions",
+        "C_Cpp.enhancedColorization",
+        "C_Cpp.codeAnalysis.runAutomatically",
+        "C_Cpp.codeAnalysis.clangTidy.enabled",
+        "C_Cpp.intelliSenseCacheSize",
+        "editor.suggestOnTriggerCharacters",
+        "editor.inlineSuggest.enabled",
+        "editor.parameterHints.enabled",
+        "vim.handleKeys",
+        "gitlens.currentLine.enabled",
+
+        // files
+        "files.autoSave",
+        "files.autoGuessEncoding",
+
+        // workbench
+        "workbench.list.smoothScrolling",
+        "workbench.editor.showTabs",
+        "workbench.editor.wrapTabs",
+
+        // window
+        "window.zoomLevel",
+        "window.dialogStyle",
+        "window.menuBarVisibility",
+
+        // explorer
+        "explorer.compactFolders",
+        "explorer.confirmDelete",
+        "explorer.confirmDragAndDrop",
+        "explorer.confirmPasteNative",
+
+        // editor
+        "editor.smoothScrolling",
+        "editor.fontFamily",
+        "editor.fontSize",
+        "editor.mouseWheelZoom",
+        "editor.cursorBlinking",
+        "editor.cursorSmoothCaretAnimation",
+        "editor.wordWrap",
+        "editor.wordWrapColumn",
+        "editor.bracketPairColorization.enabled",
+        "editor.guides.bracketPairs",
+        "editor.fontLigatures",
+        "editor.copyWithSyntaxHighlighting",
+        "editor.formatOnSave",
+        "editor.formatOnPaste",
+        "editor.detectIndentation",
+        "editor.insertSpaces",
+        "editor.tabCompletion",
+        "editor.wordBasedSuggestions",
+        "editor.quickSuggestions",
+        "editor.suggestSelection",
+        "editor.inlayHints.enabled",
+        "editor.codeLens",
+
+        // terminal
+        "terminal.integrated.smoothScrolling",
+        "terminal.integrated.fontFamily",
+        "terminal.integrated.defaultProfile.windows",
+        "terminal.integrated.defaultProfile.linux",
+        "terminal.integrated.fontLigatures.enabled",
+        "terminal.integrated.fontLigatures.featureSettings",
+
+        // github.copilot
+        "github.copilot.enable",
+
+        // better-todo-tree
+        "better-todo-tree.general.tags",
+        "better-todo-tree.highlights.defaultHighlight",
+        "better-todo-tree.highlights.customHighlight",
+
+        // theme
+        "workbench.iconTheme",
+        "workbench.colorTheme",
+        "editor.semanticTokenColorCustomizations",
+        "editor.tokenColorCustomizations",
+
+        // other extensions
+        "cSpell.userWords",
+        "background.enabled",
+        "background.fullscreen",
+    ],
+
+    "files.autoSaveDelay": 5000,
+    // "editor.formatOnType": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "debug.showBreakpointsInOverviewRuler": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "terminal.integrated.cursorBlinking": false,
+    "terminal.integrated.rightClickBehavior": "default",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.unicodeHighlight.allowedLocales": {
+        "zh-hans": true
+    },
+    "workbench.editorAssociations": {
+        "*.pdf": "default"
+    },
+    "editor.acceptSuggestionOnEnter": "smart",
+    "projectManager.sortList": "Recent",
+    "editor.stickyTabStops": true, //在缩进上移动光标时四个空格一组来移动，就仿佛它们是制表符(\t)一样
+    "editor.renderControlCharacters": true, // 编辑器中显示不可见的控制字符
+    /*terminal*/
+    /*files*/
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/bower_components": true,
+        "**/CVS": true,
+        "**/tmp": true
+    },
+    "files.watcherExclude": {
+        //不索引一些不必要索引的大文件夹以减少内存和CPU消耗
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/tmp/**": true,
+        "**/bower_components/**": true,
+        "**/dist/**": true
+    },
+    /*workbench*/
+    "workbench.editor.enablePreview": false, //打开文件时不是“预览”模式，即在编辑一个文件时打开编辑另一个文件不会覆盖当前编辑的文件而是新建一个标签页
+    "search.followSymlinks": false, //据说可以减少vscode的CPU和内存占用
+    "debug.internalConsoleOptions": "openOnSessionStart", //每次调试都打开调试控制台，方便调试
+    "debug.toolBarLocation": "docked", //固定调试时工具条的位置，防止遮挡代码内容（个人喜好）
+    "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup", //在启动调试会话前保存除了无标题文档以外的文档（毕竟你创建了无标题文档就说明你根本没有想保存它的意思（至少我是这样的。））
+    "debug.onTaskErrors": "showErrors", //预启动任务出错后显示错误，并不启动调试
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "workbench.layoutControl.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.formatting": "disabled",
+    "C_Cpp.dimInactiveRegions": false,
+    "C_Cpp.enhancedColorization": "disabled",
+    "C_Cpp.codeAnalysis.runAutomatically": false,
+    "C_Cpp.codeAnalysis.clangTidy.enabled": false,
+    "C_Cpp.intelliSenseCacheSize": 0,
+    "chat.viewSessions.orientation": "stacked",
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "fileHistory": true,
+        "repositories": true,
+        "searchAndCompare": false,
+        "launchpad": false
+    },
+    "editor.minimap.enabled": false,
+    "window.customTitleBarVisibility": "windowed",
+    // 禁用代码补全
+    // "editor.quickSuggestions": {
+    //     "comments": "off",
+    //     "strings": "off",
+    //     "other": "off"
+    // },
+    // "editor.suggestOnTriggerCharacters": false,
+    // "editor.inlineSuggest.enabled": false,
+    // "editor.parameterHints.enabled": false,
+    "workbench.editor.useModal": "some",
+    "vim.insertModeKeyBindings": [
+        { "before": ["j","k"], "after": ["<Esc>"] },
+        { "before": ["<C-h>"], "after": ["<Left>"] },
+        { "before": ["<C-j>"], "after": ["<Down>"] },
+        { "before": ["<C-k>"], "after": ["<Up>"] },
+        { "before": ["<C-l>"], "after": ["<Right>"] }
+    ],
+    "vim.handleKeys": {
+        "<C-p>": false
+    },
+    "vim.timeout": 500,
+    "vim.timeoutlen": 300,
+
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gemini-3.1-pro-preview",
+
+    // -------------------------------------------------------------------
+    //                      files
+    // -------------------------------------------------------------------
+
+    "files.autoSave": "onFocusChange",
+    "files.autoGuessEncoding": true,
+
+    // -------------------------------------------------------------------
+    //                      workbench
+    // -------------------------------------------------------------------
+
+    "workbench.list.smoothScrolling": true,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.wrapTabs": true,
+
+    // -------------------------------------------------------------------
+    //                      window
+    // -------------------------------------------------------------------
+
+    "window.zoomLevel": 0,
+    "window.dialogStyle": "custom",
+    "window.menuBarVisibility": "visible",
+
+    // -------------------------------------------------------------------
+    //                      explorer
+    // -------------------------------------------------------------------
+
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmPasteNative": false,
+
+    // -------------------------------------------------------------------
+    //                      editor
+    // -------------------------------------------------------------------
+
+    "editor.smoothScrolling": true,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 16,
+    "editor.mouseWheelZoom": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.fontLigatures": "\"calt\" on, \"dlig\" on",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabCompletion": "on",
+    "editor.wordBasedSuggestions": "off",
+    "editor.quickSuggestions": "on",
+    "editor.suggestSelection": "first",
+    "editor.inlayHints.enabled": "off",
+    "editor.codeLens": false,
+
+    // -------------------------------------------------------------------
+    //                      terminal
+    // -------------------------------------------------------------------
+
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"dlig\" on",
+
+    // -------------------------------------------------------------------
+    //                       github.copilot
+    // -------------------------------------------------------------------
+
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "jsonc": false,
+        "cpp": false,
+        "c": false
+    },
+
+    // -------------------------------------------------------------------
+    //                       better-todo-tree
+    // -------------------------------------------------------------------
+
+    "better-todo-tree.general.tags": [
+        "TODO",
+        "NOTE",
+        "IMPORT",
+    ],
+    "better-todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "#FF0000",
+        "fontWeight": "bold",
+        "textDecoration": "underline",
+        "iconColour": "#FF0000"
+    },
+    "better-todo-tree.highlights.customHighlight": {
+        "NOTE": {
+            "icon": "note",
+            "type": "text",
+            "foreground": "#4C7027",
+            "fontWeight": "bold",
+            "textDecoration": "underline",
+            "iconColour": "#4C7027"
+        },
+        "IMPORT": {
+            "icon": "note",
+            "type": "text",
+            "foreground": "#5D8A30",
+            "fontWeight": "bold",
+            "textDecoration": "underline",
+            "iconColour": "#5D8A30"
+        }
+    },
+
+    // -------------------------------------------------------------------
+    //              C/C++ One Dark Pro Night Flat Theme
+    // -------------------------------------------------------------------
+
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro Night Flat",
+    "editor.semanticTokenColorCustomizations": {
+        "[One Dark Pro Night Flat]": {
+            "enabled": true,
+            "rules": {
+                "parameter": "#d5d5d5",
+                "label": "#E9F359"
+            }
+        }
+    },
+    "editor.tokenColorCustomizations": {
+        "[One Dark Pro Night Flat]": {
+            "textMateRules": [
+                {
+                    "scope": [
+                        "support.other.attribute.cpp",
+                        "support.other.attribute.c"
+                    ],
+                    "settings": {
+                        "foreground": "#d4a476"
+                    }
+                }
+            ]
+        }
+    },
+
+    // -------------------------------------------------------------------
+    //              other extensions
+    // -------------------------------------------------------------------
+
+    "cSpell.userWords": [ "Relsola" ],
+    "background.enabled": true,
+    "background.fullscreen": {
+        "images": ["file:///D:/img/other/sola.jpg"],
+        "opacity": 0.1,
+        "size": "cover",
+        "position": "center",
+        "interval": 0
+    },
+}
