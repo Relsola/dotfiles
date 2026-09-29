@@ -1,7 +1,7 @@
 CompileFlags:
   Add:
     - -xc++
-    - -std=gnu++14
+    - -std=gnu++20
     - -fno-exceptions
     - -fno-rtti
     - -Wall
@@ -18,15 +18,5 @@ Diagnostics:
   Suppress:
     - unused-includes
 
-Completion
+Completion:
   HeaderInsertion: Never
-
----
-If:
-  PathMatch: [data/.*]
-
-Index:
-  Background: Skip
-
-Diagnostics:
-  Suppress: '*'

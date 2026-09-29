@@ -40,8 +40,6 @@ IndentGotoLabels: true
 IncludeBlocks: Preserve
 SortIncludes: Never
 
-
 UseTab: Never
 IndentWidth: 4
-
 ---
