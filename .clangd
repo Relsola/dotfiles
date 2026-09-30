@@ -1,11 +1,9 @@
 CompileFlags:
   Add:
-    - -std=gnu++20
+    - -std=gnu++23
     - -fno-exceptions
     - -fno-rtti
     - -Wall
-    - -Wextra
-    - -Wshadow
 
 Index:
   Background: Build
