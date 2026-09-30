@@ -17,7 +17,6 @@
         "C_Cpp.codeAnalysis.clangTidy.enabled",
         "C_Cpp.intelliSenseCacheSize",
         "editor.suggestOnTriggerCharacters",
-        "editor.inlineSuggest.enabled",
         "editor.parameterHints.enabled",
         "vim.handleKeys",
         "gitlens.currentLine.enabled",
@@ -25,6 +24,7 @@
         // files
         "files.autoSave",
         "files.autoGuessEncoding",
+        "files.watcherExclude",
 
         // workbench
         "workbench.list.smoothScrolling",
@@ -65,17 +65,26 @@
         "editor.suggestSelection",
         "editor.inlayHints.enabled",
         "editor.codeLens",
+        "editor.inlineSuggest.enabled",
 
         // terminal
         "terminal.integrated.smoothScrolling",
         "terminal.integrated.fontFamily",
         "terminal.integrated.defaultProfile.windows",
         "terminal.integrated.defaultProfile.linux",
+        "terminal.integrated.shellIntegration.enabled",
         "terminal.integrated.fontLigatures.enabled",
         "terminal.integrated.fontLigatures.featureSettings",
 
+        // vscode
+        "telemetry.telemetryLevel",
+        "workbench.enableExperiments",
+
         // github.copilot
         "github.copilot.enable",
+        "github.copilot.editor.enableCodeActions",
+        "github.copilot.renameSuggestions.triggerAutomatically",
+        "chat.tools.terminal.terminalProfile.windows",
 
         // better-todo-tree
         "better-todo-tree.general.tags",
@@ -92,6 +101,8 @@
         "cSpell.userWords",
         "background.enabled",
         "background.fullscreen",
+        "clangd.path",
+        "clangd.arguments",
     ],
 
     "files.autoSaveDelay": 5000,
@@ -113,7 +124,6 @@
     "projectManager.sortList": "Recent",
     "editor.stickyTabStops": true, //在缩进上移动光标时四个空格一组来移动，就仿佛它们是制表符(\t)一样
     "editor.renderControlCharacters": true, // 编辑器中显示不可见的控制字符
-    /*terminal*/
     /*files*/
     "files.exclude": {
         "**/.DS_Store": true,
@@ -123,15 +133,6 @@
         "**/bower_components": true,
         "**/CVS": true,
         "**/tmp": true
-    },
-    "files.watcherExclude": {
-        //不索引一些不必要索引的大文件夹以减少内存和CPU消耗
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/**": true,
-        "**/tmp/**": true,
-        "**/bower_components/**": true,
-        "**/dist/**": true
     },
     /*workbench*/
     "workbench.editor.enablePreview": false, //打开文件时不是“预览”模式，即在编辑一个文件时打开编辑另一个文件不会覆盖当前编辑的文件而是新建一个标签页
@@ -180,7 +181,7 @@
     //     "other": "off"
     // },
     // "editor.suggestOnTriggerCharacters": false,
-    // "editor.inlineSuggest.enabled": false,
+
     // "editor.parameterHints.enabled": false,
     "workbench.editor.useModal": "some",
     "vim.insertModeKeyBindings": [
@@ -196,15 +197,18 @@
     "vim.timeout": 500,
     "vim.timeoutlen": 300,
 
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gemini-3.1-pro-preview",
-
     // -------------------------------------------------------------------
     //                      files
     // -------------------------------------------------------------------
 
     "files.autoSave": "onFocusChange",
     "files.autoGuessEncoding": true,
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/.git/**": true,
+        "**/.cache/**": true,
+        "**/build/**": true,
+    },
 
     // -------------------------------------------------------------------
     //                      workbench
@@ -241,7 +245,7 @@
     "editor.mouseWheelZoom": false,
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrap": "off",
     "editor.wordWrapColumn": 100,
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
@@ -257,6 +261,7 @@
     "editor.suggestSelection": "first",
     "editor.inlayHints.enabled": "off",
     "editor.codeLens": false,
+    "editor.inlineSuggest.enabled": false,
 
     // -------------------------------------------------------------------
     //                      terminal
@@ -266,8 +271,16 @@
     "terminal.integrated.fontFamily": "JetBrains Mono",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"dlig\" on",
+
+    // -------------------------------------------------------------------
+    //                      vscode
+    // -------------------------------------------------------------------
+
+    "telemetry.telemetryLevel": "off",
+    "workbench.enableExperiments": false,
 
     // -------------------------------------------------------------------
     //                       github.copilot
@@ -275,12 +288,12 @@
 
     "github.copilot.enable": {
         "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false,
-        "jsonc": false,
-        "cpp": false,
-        "c": false
+    },
+    "github.copilot.editor.enableCodeActions": false,
+    "github.copilot.renameSuggestions.triggerAutomatically": false,
+    "chat.tools.terminal.terminalProfile.windows": {
+        "path": "D:\\code\\PowerShell\\pwsh.exe",
+        "icon": "terminal-powershell"
     },
 
     // -------------------------------------------------------------------
@@ -354,7 +367,10 @@
     //              other extensions
     // -------------------------------------------------------------------
 
-    "cSpell.userWords": [ "Relsola" ],
+    "cSpell.userWords": [
+        "cppvsdbg",
+        "Relsola"
+    ],
     "background.enabled": true,
     "background.fullscreen": {
         "images": ["file:///D:/img/other/sola.jpg"],
@@ -363,4 +379,24 @@
         "position": "center",
         "interval": 0
     },
+    "clangd.path": "D:\\code\\LLVM\\bin\\clangd.exe",
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--background-index-priority=low",
+        "--pch-storage=memory",
+        "--compile-commands-dir=${workspaceFolder}\\",
+        "--log=error",
+        "-j=8"
+    ],
+
+    // -------------------------------------------------------------------
+    //              other new setting
+    // -------------------------------------------------------------------
+
+    "remote.SSH.remotePlatform": {
+        "koik": "linux"
+    },
+    "network.meteredConnection": "off",
 }
