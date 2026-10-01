@@ -45,7 +45,7 @@ Checks: >
 
 CheckOptions:
     - key:   bugprone-misplaced-widening-cast.CheckImplicitCasts
-    - value: true
+      value: true
 
 FormatStyle: "file"
 HeaderFilterRegex: "*.h$"
