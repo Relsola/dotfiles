@@ -16,7 +16,6 @@
         "C_Cpp.codeAnalysis.runAutomatically",
         "C_Cpp.codeAnalysis.clangTidy.enabled",
         "C_Cpp.intelliSenseCacheSize",
-        "editor.suggestOnTriggerCharacters",
         "editor.parameterHints.enabled",
         "vim.handleKeys",
         "gitlens.currentLine.enabled",
@@ -25,6 +24,7 @@
         "files.autoSave",
         "files.autoGuessEncoding",
         "files.watcherExclude",
+        "search.exclude",
 
         // workbench
         "workbench.list.smoothScrolling",
@@ -62,10 +62,14 @@
         "editor.tabCompletion",
         "editor.wordBasedSuggestions",
         "editor.quickSuggestions",
+        "editor.suggestOnTriggerCharacters",
         "editor.suggestSelection",
         "editor.inlayHints.enabled",
         "editor.codeLens",
         "editor.inlineSuggest.enabled",
+        "editor.lightbulb.enabled",
+        "editor.minimap.enabled",
+        "editor.minimap.renderCharacters",
 
         // terminal
         "terminal.integrated.smoothScrolling",
@@ -79,12 +83,17 @@
         // vscode
         "telemetry.telemetryLevel",
         "workbench.enableExperiments",
+        "scm.diffDecorations",
+        "git.enableStatusBarSync",
 
-        // github.copilot
+        // github.copilot / AI
         "github.copilot.enable",
         "github.copilot.editor.enableCodeActions",
         "github.copilot.renameSuggestions.triggerAutomatically",
+        "github.copilot.nextEditSuggestions.eagerness",
         "chat.tools.terminal.terminalProfile.windows",
+        "inlineChat.affordance",
+        "inlineChat.fixDiagnostics",
 
         // better-todo-tree
         "better-todo-tree.general.tags",
@@ -172,7 +181,6 @@
         "searchAndCompare": false,
         "launchpad": false
     },
-    "editor.minimap.enabled": false,
     "window.customTitleBarVisibility": "windowed",
     // 禁用代码补全
     // "editor.quickSuggestions": {
@@ -180,7 +188,7 @@
     //     "strings": "off",
     //     "other": "off"
     // },
-    // "editor.suggestOnTriggerCharacters": false,
+
 
     // "editor.parameterHints.enabled": false,
     "workbench.editor.useModal": "some",
@@ -205,9 +213,21 @@
     "files.autoGuessEncoding": true,
     "files.watcherExclude": {
         "**/node_modules/**": true,
-        "**/.git/**": true,
         "**/.cache/**": true,
+        "**/.git/**": true,
+        "**/.agents/**": true,
+        "**/dist/**": true,
         "**/build/**": true,
+        "**/third_party/**": true,
+        "**/*.log": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.agents/**": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/third_party": true,
+        "**/*.log": true
     },
 
     // -------------------------------------------------------------------
@@ -248,7 +268,7 @@
     "editor.wordWrap": "off",
     "editor.wordWrapColumn": 100,
     "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairs": "active",
     "editor.fontLigatures": "\"calt\" on, \"dlig\" on",
     "editor.copyWithSyntaxHighlighting": false,
     "editor.formatOnSave": false,
@@ -257,11 +277,19 @@
     "editor.insertSpaces": true,
     "editor.tabCompletion": "on",
     "editor.wordBasedSuggestions": "off",
-    "editor.quickSuggestions": "on",
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
     "editor.suggestSelection": "first",
     "editor.inlayHints.enabled": "off",
     "editor.codeLens": false,
     "editor.inlineSuggest.enabled": false,
+    "editor.lightbulb.enabled": "off",
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
 
     // -------------------------------------------------------------------
     //                      terminal
@@ -281,20 +309,26 @@
 
     "telemetry.telemetryLevel": "off",
     "workbench.enableExperiments": false,
+    "scm.diffDecorations": "none",
+    "git.enableStatusBarSync": false,
 
     // -------------------------------------------------------------------
-    //                       github.copilot
+    //                       github.copilot / AI
     // -------------------------------------------------------------------
 
     "github.copilot.enable": {
         "*": false,
+        "cpp": false
     },
     "github.copilot.editor.enableCodeActions": false,
     "github.copilot.renameSuggestions.triggerAutomatically": false,
+    "github.copilot.nextEditSuggestions.eagerness": "low",
     "chat.tools.terminal.terminalProfile.windows": {
         "path": "D:\\code\\PowerShell\\pwsh.exe",
         "icon": "terminal-powershell"
     },
+    "inlineChat.affordance": "off",
+    "inlineChat.fixDiagnostics": false,
 
     // -------------------------------------------------------------------
     //                       better-todo-tree
@@ -382,13 +416,12 @@
     "clangd.path": "D:\\code\\LLVM\\bin\\clangd.exe",
     "clangd.arguments": [
         "--background-index",
-        "--clang-tidy",
         "--completion-style=detailed",
         "--background-index-priority=low",
         "--pch-storage=memory",
         "--compile-commands-dir=${workspaceFolder}\\",
         "--log=error",
-        "-j=8"
+        "-j=4"
     ],
 
     // -------------------------------------------------------------------

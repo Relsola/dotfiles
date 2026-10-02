@@ -12,8 +12,17 @@ InlayHints:
   Enabled: No
 
 Diagnostics:
-  Suppress:
-    - unused-includes
+  UnusedIncludes: None
 
 Completion:
   HeaderInsertion: Never
+  Limit: 20
+
+---
+If:
+  PathMatch: .*/(third_party|lib)/.*
+Index:
+  Background: Skip
+Diagnostics:
+  ClangTidy:
+    Suppress: ["*"]
