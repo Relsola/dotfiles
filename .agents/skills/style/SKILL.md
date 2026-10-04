@@ -1,6 +1,6 @@
 ---
 name: style
-description: 编程风格指南.
+description: C/C++ 编程风格指南.
 ---
 
 # 编程风格
@@ -42,16 +42,12 @@ description: 编程风格指南.
 4. 虚函数和继承: 不使用面向对象编程。
 5. 模板元编程: 复杂度和编译时间的主要来源，严重增加心智负担，且难以调试。
 
-## 使用基本类型别名和 static 关键字别名
+## 使用基本类型别名
 
 别名定义如下
 
 ```cpp
 #include <stdint.h>
-
-#define internal        static
-#define local_persist   static
-#define global_variable static
 
 using i8  = int8_t;
 using i16 = int16_t;

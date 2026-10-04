@@ -16,7 +16,6 @@ Diagnostics:
 
 Completion:
   HeaderInsertion: Never
-  Limit: 20
 
 ---
 If:
@@ -24,5 +23,4 @@ If:
 Index:
   Background: Skip
 Diagnostics:
-  ClangTidy:
-    Suppress: ["*"]
+  Suppress: "*"

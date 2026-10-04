@@ -24,12 +24,14 @@
         "files.autoSave",
         "files.autoGuessEncoding",
         "files.watcherExclude",
+        "search.followSymlinks",
         "search.exclude",
 
         // workbench
         "workbench.list.smoothScrolling",
         "workbench.editor.showTabs",
         "workbench.editor.wrapTabs",
+        "workbench.editor.enablePreview",
 
         // window
         "window.zoomLevel",
@@ -70,6 +72,8 @@
         "editor.lightbulb.enabled",
         "editor.minimap.enabled",
         "editor.minimap.renderCharacters",
+        "editor.scrollbar.vertical",
+        "editor.scrollbar.horizontal",
 
         // terminal
         "terminal.integrated.smoothScrolling",
@@ -130,22 +134,8 @@
         "*.pdf": "default"
     },
     "editor.acceptSuggestionOnEnter": "smart",
-    "projectManager.sortList": "Recent",
     "editor.stickyTabStops": true, //在缩进上移动光标时四个空格一组来移动，就仿佛它们是制表符(\t)一样
     "editor.renderControlCharacters": true, // 编辑器中显示不可见的控制字符
-    /*files*/
-    "files.exclude": {
-        "**/.DS_Store": true,
-        "**/.git": true,
-        "**/.hg": true,
-        "**/.svn": true,
-        "**/bower_components": true,
-        "**/CVS": true,
-        "**/tmp": true
-    },
-    /*workbench*/
-    "workbench.editor.enablePreview": false, //打开文件时不是“预览”模式，即在编辑一个文件时打开编辑另一个文件不会覆盖当前编辑的文件而是新建一个标签页
-    "search.followSymlinks": false, //据说可以减少vscode的CPU和内存占用
     "debug.internalConsoleOptions": "openOnSessionStart", //每次调试都打开调试控制台，方便调试
     "debug.toolBarLocation": "docked", //固定调试时工具条的位置，防止遮挡代码内容（个人喜好）
     "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup", //在启动调试会话前保存除了无标题文档以外的文档（毕竟你创建了无标题文档就说明你根本没有想保存它的意思（至少我是这样的。））
@@ -221,6 +211,7 @@
         "**/third_party/**": true,
         "**/*.log": true,
     },
+    "search.followSymlinks": false,
     "search.exclude": {
         "**/node_modules": true,
         "**/.agents/**": true,
@@ -237,6 +228,7 @@
     "workbench.list.smoothScrolling": true,
     "workbench.editor.showTabs": "multiple",
     "workbench.editor.wrapTabs": true,
+    "workbench.editor.enablePreview": false,
 
     // -------------------------------------------------------------------
     //                      window
@@ -280,7 +272,7 @@
     "editor.quickSuggestions": {
         "comments": "off",
         "strings": "off",
-        "other": "off"
+        "other": "off",
     },
     "editor.suggestOnTriggerCharacters": false,
     "editor.suggestSelection": "first",
@@ -290,6 +282,8 @@
     "editor.lightbulb.enabled": "off",
     "editor.minimap.enabled": false,
     "editor.minimap.renderCharacters": false,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
 
     // -------------------------------------------------------------------
     //                      terminal
@@ -418,9 +412,12 @@
         "--background-index",
         "--completion-style=detailed",
         "--background-index-priority=low",
-        "--pch-storage=memory",
-        "--compile-commands-dir=${workspaceFolder}\\",
+        "--pch-storage=disk",
+        "--compile-commands-dir=${workspaceFolder}",
+        "--limit-results=20",
+        "--limit-references=20",
         "--log=error",
+        "--enable-config",
         "-j=4"
     ],
 
@@ -432,4 +429,5 @@
         "koik": "linux"
     },
     "network.meteredConnection": "off",
+    "window.newWindowProfile": "Read",
 }
